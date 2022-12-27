@@ -1,4 +1,4 @@
-package com.fynd.groot.java.controller;
+package com.fynd.example.java.controller;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
