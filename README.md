@@ -1,4 +1,4 @@
-# Sample Extension
+# Sample Java-React Extension
 
 
 ### Built With
@@ -18,12 +18,12 @@ To get a local copy up and running follow these simple steps :
 List of mandatory Services to be downloaded on your System
 
     1. Java 14 or higher
-    2. Mevan 
+    2. Maven 
     2. Redis
 
 ### Steps to Execute
 
-* Clone the project : [Git link](https://github.com/gofynd/example-extension-java-vue)
+* Clone the project : [Git link](https://github.com/gofynd/example-extension-java-react)
 * Open the Spring boot project on any IDE
 * Create a Configuration to run this application using Local Spring profile :
   ```-Dspring.profiles.active=local ```
@@ -31,7 +31,7 @@ List of mandatory Services to be downloaded on your System
     ```
     cd app
     npm i 
-    npm run start
+    npm run build
     ```
 * Run the application
   ```
