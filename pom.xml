@@ -12,7 +12,7 @@
 	<groupId>com.fynd</groupId>
 	<artifactId>example-extension-java-react</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Example Extension Java React</name>
+	<name>groot</name>
 	<description>Example java extension</description>
 	<properties>
 		<java.version>11</java.version>
