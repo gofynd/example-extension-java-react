@@ -52,7 +52,7 @@ To run the application using Docker, follow these steps:
     ```
 * Run the Docker container
   ```
-  docker run -p 8080:8080 my-java-react-app 
+  docker run -p 8080:8080 -e SPRING_PROFILES_ACTIVE=dev my-java-react-app 
   ```
 ### Tests
 Use the Below Controller to Test the Application :
