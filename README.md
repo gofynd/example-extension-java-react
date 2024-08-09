@@ -1,12 +1,17 @@
-# Sample Java-React Extension
 
+# Sample Java - React extension
+
+[![Coverage Status][coveralls-badge]]([coveralls-url])
 
 ### Built With
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 
-* [Spring Boot Framework](https://spring.io/projects/spring-boot)
-* [Java 11](https://www.java.com/en/)
-* [Redis](https://redis.io/)
-* NodeJS 14 or higher
+[coveralls-badge]: https://coveralls.io/repos/github/gofynd/example-extension-java-react/badge.svg?branch=main&&kill_cache=1
+[coveralls-url]: https://coveralls.io/github/gofynd/example-extension-java-react?branch=main
+
 
 
 ## Getting Started
@@ -26,7 +31,7 @@ List of mandatory Services to be downloaded on your System
 * Clone the project : [Git link](https://github.com/gofynd/example-extension-java-react)
 * Open the Spring boot project on any IDE
 * Build Front-end dist files
-    ```
+    ```shell
     cd app
     npm i 
     npm run build
@@ -38,10 +43,23 @@ List of mandatory Services to be downloaded on your System
   ```
 * Server starts on *8080*
 
+### Docker Instructions
+
+To run the application using Docker, follow these steps:
+* Build the Docker image:
+    ```shell
+    docker build -t my-java-react-app .
+    ```
+* Run the Docker container
+  ```
+  docker run -p 8080:8080 my-java-react-app 
+  ```
+* Server starts on *8080*
 
 ### Tests
 Use the Below Controller to Test the Application :
 
 * HealthController : Uses the Actuator Health points to check if all the resources are stable and active
 
-        http://localhost:8080/_heathz
+        http://localhost:8080/_healthz
+
