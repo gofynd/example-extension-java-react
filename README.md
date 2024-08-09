@@ -54,8 +54,6 @@ To run the application using Docker, follow these steps:
   ```
   docker run -p 8080:8080 my-java-react-app 
   ```
-* Server starts on *8080*
-
 ### Tests
 Use the Below Controller to Test the Application :
 
