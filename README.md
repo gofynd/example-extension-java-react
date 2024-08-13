@@ -25,7 +25,7 @@ To initialize your extension template locally, run the following command:
 ```shell
 fdk extension init --template java-react
 ```
-Enter your preferred extension name and type, and you are all set.
+Enter your preferred extension name and extension type, and you are all set.
 
 ## Local Development
 To start local development, execute the following command:
