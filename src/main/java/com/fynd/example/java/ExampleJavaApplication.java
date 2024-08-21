@@ -5,17 +5,15 @@ import com.fynd.extension.model.Extension;
 import com.fynd.extension.model.ExtensionCallback;
 import com.fynd.extension.model.ExtensionProperties;
 import com.fynd.extension.session.Session;
-import com.fynd.extension.storage.RedisStorage;
+import com.fynd.extension.storage.SQLiteStorage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.DependsOn;
-import redis.clients.jedis.JedisPool;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.fynd.**","com.sdk.**"})
@@ -25,17 +23,16 @@ public class ExampleJavaApplication {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	ExtensionProperties extensionProperties;
+	@Value("${sqlite.db.url}")
+	private String dbUrl;
 
 	@Autowired
-	@Qualifier("redis-pool")
-	JedisPool jedis;
+	ExtensionProperties extensionProperties;
 
 
 	ExtensionCallback callbacks = new ExtensionCallback((request) -> {
 		Session fdkSession = (Session) request.getAttribute("session");
-		logger.info("In Auth callback");
+		logger.debug("In Auth callback");
 		if(request.getParameter("application_id") != null){
 			return extensionProperties.getBaseUrl() + "/company/" + fdkSession.getCompanyId() + "/application/" + request.getParameter("application_id");
 		}
@@ -60,12 +57,11 @@ public class ExampleJavaApplication {
 	}
 
 	@Bean
-	@DependsOn({"redis-pool"})
-	public com.fynd.extension.model.Extension getExtension() {
+	public com.fynd.extension.model.Extension getExtension() throws ClassNotFoundException {
 		Extension extension = new Extension();
 		return extension.initialize(
 				extensionProperties,
-				new RedisStorage(jedis, REDIS_KEY),
+				new SQLiteStorage(dbUrl, REDIS_KEY),
 				callbacks
 		);
 	}
