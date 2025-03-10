@@ -48,7 +48,7 @@ server:
 ext:
   api_key: ${EXTENSION_API_KEY}
   api_secret: ${EXTENSION_API_SECRET}
-  scopes: ""
+  access_mode : 'offline'
   base_url: ${EXTENSION_BASE_URL}
   cluster: ${FP_API_DOMAIN:https://api.fynd.com}
   webhook:
