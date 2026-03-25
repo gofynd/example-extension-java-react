@@ -40,6 +40,7 @@ app/.npm/
 
 
 # local env files
+.env
 app/.env.local
 app/.env.*.local
 
